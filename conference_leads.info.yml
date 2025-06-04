@@ -1,0 +1,8 @@
+name: 'Conference Contact Form'
+type: module
+description: 'A module to handle dynamic contact forms for multiple conferences.'
+core_version_requirement: ^9 || ^10
+package: Custom Forms 
+dependencies:
+  - drupal:config
+  - drupal:form

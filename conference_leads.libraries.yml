@@ -1,0 +1,9 @@
+contact_form_email_styles: 
+  version: 1.x
+  js:
+    js/conference_leads.js: {}
+  css:
+    theme:
+      css/conference_leads.css: {}
+  dependencies:
+    - core/jquery

@@ -1,0 +1,80 @@
+<?php
+use Drupal\Core\Database\Database;
+use Drupal\Core\Database\Driver\mysql\CreateTable;
+use Drupal\Core\Database\Schema\Schema;
+/**
+* @file
+* Install, update and uninstall functions for conference_leads
+*/
+function conference_leads_schema(){
+    $schema['conference_leads'] = array(
+        'description' => 'The table for storing the email subscribe data.',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for email subscribe form',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'email' => array(
+                'description' => 'email',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+            ),
+            'ip_address' => array(
+                'description' => 'ip address',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+            ),
+            'created' => array(
+                'description' => 'Timestamp when the rating was created.',
+                'type' => 'int',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+              ),
+            
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}
+
+
+/**
+ * Implements hook_install().
+ */
+function conference_leads_install() {
+  // Perform any installation tasks here.
+  // For example, creating the table defined in hook_schema().
+  drupal_install_schema('conference_leads');
+  
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function conference_leads_uninstall() {
+  // Clean up when the module is uninstalled.
+  drupal_uninstall_schema('emtp_email_subscribe');
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function conference_leads_update_8001() {
+  // Perform database updates field additions etc.
+  
+  $schema = [
+    'description' => 'Timestamp when the rating was created.',
+    'type' => 'int',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 0,
+  ];
+
+  // Add the column to the table.
+  \Drupal::database()->schema()->addField('conference_leads', 'created', $schema);
+  
+}

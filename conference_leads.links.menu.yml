@@ -1,0 +1,6 @@
+conference_leads.conference_settings:
+  title: 'Conferences Settings'
+  description: 'Configure the different contact forms by conference name and date'
+  parent: system.admin_config_services
+  route_name: conference_leads.conference_settings
+  weight: 100

@@ -1,0 +1,15 @@
+conference_leads.conference_config_form:
+  path: '/admin/config/conference_leads/conference-settings'
+  defaults:
+    _form: '\Drupal\conference_leads\Form\ConferenceContactFormConfigForm'
+    _title: 'Manage Conference Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+conference_leads.conference_contact_form:
+  path: '/conference-form/contact-form'
+  defaults:
+    _form: '\Drupal\conference_leads\Form\ConferenceContactForm'
+    _title: 'Conference Contact Form'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Conference Contact Leads module's procedural hooks and functions.
+ */
+/**
+ * Implements hook_theme().
+ */
+function conference_leads_theme() {
+  return [ 
+    'contact_form'=> [
+        'render element' => 'form',
+        'template' => 'conference-leads-form',
+        'path' => drupal_get_path('module', 'conference_leads') . '/templates',
+      ],
+  ];
+}
